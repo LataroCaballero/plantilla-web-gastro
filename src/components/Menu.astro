@@ -1,0 +1,187 @@
+---
+import business from "../data/business.json";
+import menuItems from "../data/menu.json";
+
+const half = Math.ceil(menuItems.length / 2);
+const row1 = menuItems.slice(0, half);
+const row2 = menuItems.slice(half);
+---
+
+<section id="menu" class="py-24 bg-white relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 md:px-12 text-center mb-14">
+    <h2
+      class="text-3xl md:text-4xl font-bold mb-3"
+      style={`color:${business.colorPrimary}`}
+    >
+      Nuestro Menú
+    </h2>
+    <p class="text-lg text-gray-600">
+      Sabores auténticos preparados con ingredientes seleccionados y pasión por el detalle.
+    </p>
+  </div>
+
+  <!-- Desktop Carrusel -->
+  <div class="hidden md:block relative max-w-[1100px] mx-auto overflow-x-visible">
+    <!-- FILA 1 -->
+    <div
+      id="row1"
+      class="flex gap-6 mb-8 transition-transform duration-700 ease-in-out overflow-visible"
+    >
+      {row1.map((item) => (
+        <div
+          class="min-w-[220px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+        >
+          <img
+            src={item.image}
+            alt={item.name}
+            class="w-full h-40 object-cover"
+            loading="lazy"
+          />
+          <div class="p-4 text-left">
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">{item.name}</h3>
+            <p class="text-gray-600 text-sm mb-3 leading-snug">
+              {item.description}
+            </p>
+            <div class="flex items-center justify-between text-[var(--primary-color)] font-semibold">
+              <span>{item.price}</span>
+              <a
+                href={`https://wa.me/${business.whatsapp.replace(
+                  /[^0-9]/g,
+                  ""
+                )}?text=Hola!%20Quiero%20pedir%20${encodeURIComponent(
+                  item.name
+                )}`}
+                class="text-xs border border-[var(--primary-color)] px-3 py-1 rounded-full hover:bg-[var(--primary-color)] hover:text-[var(--accent-color)] transition-colors"
+              >
+                Pedir
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- FILA 2 -->
+    <div
+      id="row2"
+      class="flex gap-6 transition-transform duration-700 ease-in-out overflow-visible"
+    >
+      {row2.map((item) => (
+        <div
+          class="min-w-[220px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+        >
+          <img
+            src={item.image}
+            alt={item.name}
+            class="w-full h-40 object-cover"
+            loading="lazy"
+          />
+          <div class="p-4 text-left">
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">{item.name}</h3>
+            <p class="text-gray-600 text-sm mb-3 leading-snug">
+              {item.description}
+            </p>
+            <div class="flex items-center justify-between text-[var(--primary-color)] font-semibold">
+              <span>{item.price}</span>
+              <a
+                href={`https://wa.me/${business.whatsapp.replace(
+                  /[^0-9]/g,
+                  ""
+                )}?text=Hola!%20Quiero%20pedir%20${encodeURIComponent(
+                  item.name
+                )}`}
+                class="text-xs border border-[var(--primary-color)] px-3 py-1 rounded-full hover:bg-[var(--primary-color)] hover:text-[var(--accent-color)] transition-colors"
+              >
+                Pedir
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- FLECHAS -->
+    <button
+      id="prevBtn"
+      class="absolute -left-10 top-1/2 -translate-y-1/2 bg-[var(--primary-color)] text-[var(--accent-color)] p-3 rounded-full shadow-lg border border-white/40 hover:scale-110 transition-transform z-30"
+    >
+      ◀
+    </button>
+
+    <button
+      id="nextBtn"
+      class="absolute -right-10 top-1/2 -translate-y-1/2 bg-[var(--primary-color)] text-[var(--accent-color)] p-3 rounded-full shadow-lg border border-white/40 hover:scale-110 transition-transform z-30"
+    >
+      ▶
+    </button>
+  </div>
+
+  <!-- Mobile Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 px-6 md:hidden">
+    {menuItems.map((item) => (
+      <div
+        class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+      >
+        <img
+          src={item.image}
+          alt={item.name}
+          class="w-full h-40 object-cover"
+          loading="lazy"
+        />
+        <div class="p-4 text-left">
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">{item.name}</h3>
+          <p class="text-gray-600 text-sm mb-3 leading-snug">
+            {item.description}
+          </p>
+          <div class="flex items-center justify-between text-[var(--primary-color)] font-semibold">
+            <span>{item.price}</span>
+            <a
+              href={`https://wa.me/${business.whatsapp.replace(
+                /[^0-9]/g,
+                ""
+              )}?text=Hola!%20Quiero%20pedir%20${encodeURIComponent(item.name)}`}
+              class="text-xs border border-[var(--primary-color)] px-3 py-1 rounded-full hover:bg-[var(--primary-color)] hover:text-[var(--accent-color)] transition-colors"
+            >
+              Pedir
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  const row1 = document.getElementById("row1");
+  const row2 = document.getElementById("row2");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  const step = 260;
+  let position = 0;
+
+  function moveCarousel(dir) {
+    position += dir * step;
+    const maxShift = -(row1.scrollWidth - row1.parentElement.offsetWidth);
+    if (position < maxShift) position = 0;
+    if (position > 0) position = maxShift;
+    row1.style.transform = `translateX(${position}px)`;
+    row2.style.transform = `translateX(${position}px)`;
+  }
+
+  nextBtn?.addEventListener("click", () => moveCarousel(-1));
+  prevBtn?.addEventListener("click", () => moveCarousel(1));
+
+  window.addEventListener("resize", () => {
+    position = 0;
+    row1.style.transform = "translateX(0)";
+    row2.style.transform = "translateX(0)";
+  });
+</script>
+
+<style is:global>
+  :root {
+    --primary-color: {business.colorPrimary};
+    --accent-color: {business.colorAccent};
+  }
+</style>
