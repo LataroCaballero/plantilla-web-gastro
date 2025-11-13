@@ -1,0 +1,32 @@
+{
+    "name": "Be! Coffee",
+    "description": "Una experiencia de café artesanal, en el corazón de la ciudad.",
+    "primaryColor": "#295044",
+    "accentColor": "#bdc69b",
+    "hero": {
+      "headline": "Tu momento de calma empieza con un buen café",
+      "subtext": "Be ;) veinticuatrosiete.",
+      "backgroundImage": "/images/hero-cafe.jpg"
+    },
+    "about": {
+      "title": "Sobre nosotros",
+      "text": "En Be! Coffee creemos en el poder de una buena taza de café para conectar personas. Cada bebida está elaborada con pasión, y cada cliente es parte de nuestra historia."
+    },
+    "menu": [
+      { "name": "Espresso", "price": "$1200", "description": "Intenso, con cuerpo y sabor equilibrado." },
+      { "name": "Capuccino", "price": "$1600", "description": "Espuma cremosa y sabor suave." },
+      { "name": "Medialunas", "price": "$900", "description": "Recién horneadas, con manteca artesanal." }
+    ],
+    "contact": {
+      "address": "Laprida y Catamarca",
+      "phone": "+54 264 555 1234",
+      "email": "hola@becoffee.com",
+      "whatsapp": "https://wa.me/542645551234?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20Be!%20Coffee.",
+      "instagram": "https://instagram.com/becoffee",
+      "hours": {
+        "weekdays": "Lunes a Sábado: 8:00 a 13:00 / 17:00 a 21:00",
+        "weekend": ""
+      },
+      "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.5829043946737!2d-68.53271452383703!3d-31.535613774207015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96814100412a69fd%3A0x4dd8efaf1ce6a553!2sBe*21%20Coffee!5e0!3m2!1ses-419!2sar!4v1763042071563!5m2!1ses-419!2sar"
+    }
+  }
